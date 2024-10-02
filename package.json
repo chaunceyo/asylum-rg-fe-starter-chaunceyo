@@ -21,6 +21,7 @@
     "@reduxjs/toolkit": "^1.8.2",
     "antd": "^4.18.4",
     "axios": "^0.21.1",
+    "babel-jest": "^26.6.0",
     "craco-less": "^1.20.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
@@ -54,8 +55,7 @@
     "extends": "react-app"
   },
   "husky": {
-    "hooks": {
-    }
+    "hooks": {}
   },
   "jest": {
     "collectCoverageFrom": [
@@ -81,7 +81,7 @@
     "format": "prettier --write 'src/**/*.{js,jsx,css,scss}'",
     "lint": "eslint 'src/**/*.{js,jsx}'",
     "prettier": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
-    "start": "node start.js",
+    "start": "npx craco --max_old_space_size=4096 start",
     "test": "craco test --env=jest-environment-jsdom-sixteen"
   },
   "version": "0.1.0"
