@@ -54,7 +54,7 @@ function RenderLandingPage(props) {
             src={GrantRatesOverTimeImg}
             alt='nationality image'>
           </img>
-          <h2>Search Grant Over Time</h2>      
+          <h2>Search Grant Rates Over Time</h2>      
         </div>
       </div>
       <div className="view-more-data-btn-container">
@@ -85,7 +85,32 @@ function RenderLandingPage(props) {
       </div>
       <div>
         {/* Bottom Section: Add code here for the graphs section for your first ticket */}
-        {/* <div className="bottom-section">*/}
+        <div className="bottom-section">
+          <h1 className='bottom-title'>Systemic Disparity Insights</h1>
+          <div className='bottom-info'>
+            <div className='facts'>
+              <h1 className='percent'>x36%</h1>
+              <h3>By the end of the Trump administration, the average<br/>
+                 asylum office grant rate had fallen 36 percent from an<br/>
+                  average of 44 percent in fiscal year 2016 to 28 percent<br/>
+                  in fiscal year 2020.
+              </h3>
+            </div>
+
+            <div className='facts'>
+              <h1 className='percent'>5%</h1>
+              <h3>The New York asylum office grant rate dropped to 5<br/>
+                 percent in fiscal year 2020.</h3>
+            </div>
+
+            <div className='facts'>
+              <h1 className='percent'>6x Lower</h1>
+              <h3>Between fiscal year 2017 and 2020, the New York<br/>
+                 asylum office's average grant rate was six times lower<br/>
+                  then the San Fransisco Asylum office.</h3>
+            </div>
+          </div>
+        </div>
         <p onClick={() => scrollToTop()} className="back-to-top">
           Back To Top ^
         </p>
