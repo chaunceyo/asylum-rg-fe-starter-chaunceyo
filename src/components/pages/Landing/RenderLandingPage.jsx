@@ -95,7 +95,7 @@ function RenderLandingPage(props) {
           <h1 className='bottom-title'>Systemic Disparity Insights</h1>
           <div className='bottom-info'>
             <div className='facts'>
-              <h1 className='percent'>x36%</h1>
+              <h1 className='percent'>36%</h1>
               <h3>By the end of the Trump administration, the average<br/>
                  asylum office grant rate had fallen 36 percent from an<br/>
                   average of 44 percent in fiscal year 2016 to 28 percent<br/>
