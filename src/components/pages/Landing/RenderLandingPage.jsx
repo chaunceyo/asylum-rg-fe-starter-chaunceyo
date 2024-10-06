@@ -33,6 +33,7 @@ function RenderLandingPage(props) {
 
       {/* Graphs Section: Add code here for the graphs section for your first ticket */}
       <div className="graphs-section">
+        {/* Add each Grant Rate image with proper headline */}
         <div className='graph-img'>
           <img
             src={GrantRatesByOfficeImg}
@@ -46,7 +47,7 @@ function RenderLandingPage(props) {
             src={GrantRatesByNationalityImg}
             alt='nationality image'>
           </img>
-          <h2>Search Grant Rates By Nationality</h2>
+          <h2>Search Grant Rates By Nationality</h2>    
         </div>
 
         <div className='graph-img'>
@@ -57,22 +58,26 @@ function RenderLandingPage(props) {
           <h2>Search Grant Rates Over Time</h2>      
         </div>
       </div>
-      <div className="view-more-data-btn-container">
-        <Button
-          type="default"
-          style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
-          onClick={() => history.push('/graphs')}
-        >
-          View the Data
-        </Button>
-
-        <Button
-          type="default"
-          style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
-        >Download the Data
-        </Button>
+        {/* Add container to hold both buttons */}
+      <div className='data-btn-container'>
+          <div className="view-more-data-btn-container">
+            <Button
+              type="default"
+              style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+              onClick={() => history.push('/graphs')}
+            >
+              View the Data
+            </Button>
+          </div>
+          <div className= 'download-data-btn-container'>
+            {/* Add "Download the Data" button */}
+            <Button
+              type="default"
+              style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+            >Download the Data
+            </Button>
+          </div>
       </div>
-
       <div className="middle-section">
         <div className="hrf-img-container">
           <img src={HrfPhoto} alt="Human Rights First" className="hrf-img" />
@@ -89,10 +94,11 @@ function RenderLandingPage(props) {
           </h3>
         </div>
       </div>
-      <div>
-        {/* Bottom Section: Add code here for the graphs section for your first ticket */}
-        <div className="bottom-section">
-          <h1 className='bottom-title'>Systemic Disparity Insights</h1>
+      {/* Bottom Section: Add code here for the graphs section for your first ticket */}
+      <div className="bottom-section">
+        {/* Add proper bottom title*/}
+        <h1 className='bottom-title'>Systemic Disparity Insights</h1>
+          {/* Add information and percent for each fact */}
           <div className='bottom-info'>
             <div className='facts'>
               <h1 className='percent'>36%</h1>
@@ -106,17 +112,19 @@ function RenderLandingPage(props) {
             <div className='facts'>
               <h1 className='percent'>5%</h1>
               <h3>The New York asylum office grant rate dropped to 5<br/>
-                 percent in fiscal year 2020.</h3>
+                 percent in fiscal year 2020.
+              </h3>
             </div>
 
             <div className='facts'>
               <h1 className='percent'>6x Lower</h1>
               <h3>Between fiscal year 2017 and 2020, the New York<br/>
                  asylum office's average grant rate was six times lower<br/>
-                  then the San Fransisco Asylum office.</h3>
+                  then the San Fransisco Asylum office.
+              </h3>
             </div>
           </div>
-        </div>
+        {/* Add "Read More" button */}
         <div className='read-more-button'>
           <Button
             type="default"

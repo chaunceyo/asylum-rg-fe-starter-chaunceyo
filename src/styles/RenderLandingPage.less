@@ -41,37 +41,55 @@
     font-size: 1.2rem;
 }
 
+// Add proper styles for ".graphs-section"
 .graphs-section {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-    padding-bottom: 70px;
+    display: flex;  // Use Flexbox to align images side-by-side
+    justify-content: space-around; // Add space around images 
+    padding-bottom: 70px; // Add space from data buttons
     
 }
 
 .graphs-section img{
+    //Adjust height and weight for images
     height: 300px;
     width: 300px;
 }
 
 .graphs-section h2{
-    padding-top: 20px;
-    font-family: 'acumin';
-    text-align: center;
+    padding-top: 20px; // Add space from images
+    font-family: 'acumin'; // Add proper font to match the rest of website
+    text-align: center; // Align text with images
     
+}
+
+
+// Add proper styles for data buttons
+.data-btn-container{
+    display: flex; // Align buttons side-by-side using Flexbox
+    justify-content: center; // Align buttons at center of section
 }
 
 .view-more-data-btn-container {
     height: 44px;
     width: 180px;
-    margin: 0 auto;
     text-align: center;
     margin-bottom: 10%;
     display: flex;
     gap: 30px;
     justify-content: center;
 }
+
+// Add styles for "Download the Data" button (same as "View More" button)
+.download-data-btn-container {
+    height: 44px;
+    width: 180px;
+    text-align: center;
+    margin-bottom: 10%;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
 
 .middle-section {
     display: flex;
@@ -95,42 +113,45 @@
     font-size: 1.4rem;
 }
 
+// Add styles for ".botton-section"
 .bottom-section {
-    font-family: 'acumin';
-    padding-top: 175px;
+    font-family: 'acumin'; // Add proper font
+    padding-top: 175px; // Add space from ".middle-section"
     
 
 }
 
 .bottom-title{
-    display: flex;
-    justify-content: center;
-    font-size: 55px;
-    padding-bottom: 175px;
-}
-
-.facts{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    
+    display: flex; // Use Flexbox
+    justify-content: center; // Align the title at center of section
+    font-size: 55px; // Adjust text size 
+    padding-bottom: 175px; // Add space from '.bottom-info'
 }
 
 .bottom-info{
-    display: flex;
-    justify-content: space-around;
+    display: flex; // Align info side-by-side
+    justify-content: space-around; // Add space around info
+}
+
+.facts{
+    display: flex; // Use Flexbox
+    flex-direction: column; // Align percents to be on top of facts
+    text-align: center; // Center text
+    
 }
 
 .percent{
-    display: flex;
-    justify-content: center;
-    font-size: 45px;
+    display: flex; // Use Flexbox
+    justify-content: center; // Move percents to center of each fact
+    font-size: 45px; // Adjust size of text
 }
 
+
+// Add styles for "Read More" button
 .read-more-button{
-    display: flex;
-    justify-content: center;
-    padding-top: 60px;
+    display: flex; // Use Flexbox
+    justify-content: center; // Move button to center of section
+    padding-top: 60px; // Add space from facts
 }
 
 .back-to-top {
