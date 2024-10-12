@@ -50,7 +50,7 @@ function GraphWrapper(props) {
         break;
     }
   }
-  function updateStateWithNewData(years, view, office, stateSettingCallback) {
+  async function updateStateWithNewData(years, view, office, stateSettingCallback) {  // make function async
     /*
           _                                                                             _
         |                                                                                 |
@@ -72,38 +72,53 @@ function GraphWrapper(props) {
                                    -- Mack 
     
     */
+   const Real_Production_URL = 'https://hrf-asylum-be-b.herokuapp.com/cases'; // Store API URL here
 
     if (office === 'all' || !office) {
-      axios
-        .get(process.env.REACT_APP_API_URI, {
-          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
-          params: {
+      // Join citizenshipSummary with fiscalSummary
+      let fiscalSummary = await axios  // await axios call
+           .get(`${Real_Production_URL}/fiscalSummary`, {  //use API for axios call
+            params: {
             from: years[0],
             to: years[1],
           },
-        })
-        .then(result => {
-          stateSettingCallback(view, office, test_data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
-        })
-        .catch(err => {
-          console.error(err);
         });
+        let citizenshipSummary = await axios
+           .get(`${Real_Production_URL}/citizenshipSummary`, {
+            params: {
+            from: years[0],
+            to: years[1],
+          },
+        });
+        
+        let fiscalData = fiscalSummary.data;    // manipulate JSON to add citizenshipData to fiscalData
+        let citizenshipData = citizenshipSummary.data;
+        fiscalData['citizenshipResults'] = citizenshipData;
+        fiscalData = [fiscalData];
+        stateSettingCallback(view, office, fiscalData); // replace test_data with fiscalData
     } else {
-      axios
-        .get(process.env.REACT_APP_API_URI, {
-          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
+      let fiscalSummary = await axios  // await axios call
+         .get(`${Real_Production_URL}/fiscalSummary`, {  //use API for axios call
           params: {
-            from: years[0],
-            to: years[1],
-            office: office,
-          },
-        })
-        .then(result => {
-          stateSettingCallback(view, office, test_data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
-        })
-        .catch(err => {
-          console.error(err);
-        });
+          from: years[0],
+          to: years[1],
+          office: office,
+        },
+      });
+      let citizenshipSummary = await axios
+         .get(`${Real_Production_URL}/citizenshipSummary`, {
+          params: {
+          from: years[0],
+          to: years[1],
+          office: office,
+        },
+      });
+      
+      let fiscalData = fiscalSummary.data;    // manipulate JSON to add citizenshipData to fiscalData
+      let citizenshipData = citizenshipSummary.data;
+      fiscalData['citizenshipResults'] = citizenshipData;
+      fiscalData = [fiscalData];
+      stateSettingCallback(view, office, fiscalData); // replace test_data with fiscalData
     }
   }
   const clearQuery = (view, office) => {
