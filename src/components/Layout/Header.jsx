@@ -3,10 +3,38 @@ import { Image } from 'antd';
 import { Link } from 'react-router-dom';
 import Logo from '../../styles/Images/WhiteLogo.png';
 import { colors } from '../../styles/data_vis_colors';
+import { useAuth0 } from '@auth0/auth0-react';
+import { Nav } from "react-bootstrap"; // import Nav
+import LoginButton from '../pages/Auth0/login-button';
+import LogoutButton from '../pages/Auth0/logout-button';
+import Profile from '../pages/Auth0/Profile';
 
 const { primary_accent_color } = colors;
 
+
+
+const AuthNav = () => {    
+  const { isAuthenticated } = useAuth0();         // component which uses an Authentication boolean to determine which button to display
+
+  return (
+    <Nav className='useAuth-nav'>
+        {isAuthenticated ? 
+        <div>
+          <Link  style={{ color: '#E2F0F7', paddingRight: '75px' }} className='profile-link' to='/profile'> {/* Add style for Link */}
+            Profile
+          </Link>
+           <LogoutButton/> 
+        </div>
+         : <LoginButton/>}
+    </Nav>
+    
+  );
+};
+
+
 function HeaderContent() {
+
+  
   return (
     <div
       style={{
@@ -29,6 +57,7 @@ function HeaderContent() {
           Graphs
         </Link>
       </div>
+      <AuthNav/>  {/* Add component here */}
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Auth0ProviderWithHistory from './components/pages/Auth0/auth0-provider-with-history'; // import Auth0 component
+import Profile from './components/pages/Auth0/Profile'; // import Profile component
 import {
   BrowserRouter as Router,
   Route,
@@ -40,38 +42,41 @@ ReactDOM.render(
 export function App() {
   const { Footer, Header } = Layout;
   return (
-    <Layout>
-      <Header
-        style={{
-          height: '10vh',
-          display: 'flex',
-          alignItems: 'center',
-          backgroundColor: primary_accent_color,
-        }}
-      >
-        <HeaderContent />
-      </Header>
-      <Switch>
-        <Route path="/" exact component={LandingPage} />
-        <Route path="/graphs" component={GraphsContainer} />
-        <Route component={NotFoundPage} />
-      </Switch>
-      <Footer
-        style={{
-          backgroundColor: primary_accent_color,
-          color: '#E2F0F7',
-        }}
-      >
-        <FooterContent />
-      </Footer>
-      <Footer
-        style={{
-          backgroundColor: primary_accent_color,
-          padding: 0,
-        }}
-      >
-        <SubFooter />
-      </Footer>
-    </Layout>
+    <Auth0ProviderWithHistory> {/* Wrap application with Auth0ProviderWithHistory */}
+      <Layout>
+        <Header
+          style={{
+            height: '10vh',
+            display: 'flex',
+            alignItems: 'center',
+            backgroundColor: primary_accent_color,
+          }}
+        >
+          <HeaderContent />
+        </Header>
+        <Switch>
+          <Route path="/" exact component={LandingPage} />
+          <Route path="/graphs" component={GraphsContainer} />
+          <Route path='/profile' component={Profile}/>  {/* add Route to Profile component*/}
+          <Route component={NotFoundPage} />
+        </Switch>
+        <Footer
+          style={{
+            backgroundColor: primary_accent_color,
+            color: '#E2F0F7',
+          }}
+        >
+          <FooterContent />
+        </Footer>
+        <Footer
+          style={{
+            backgroundColor: primary_accent_color,
+            padding: 0,
+          }}
+        >
+          <SubFooter />
+        </Footer>
+      </Layout>
+    </Auth0ProviderWithHistory>
   );
 }
